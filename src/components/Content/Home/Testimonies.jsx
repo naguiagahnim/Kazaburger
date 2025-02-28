@@ -11,6 +11,8 @@ const Testimonies = () => {
 		return <div>Error: {error.message}</div>;
 	}
 
+
+
 	var dataShuffled = shuffleArray(data);
 	return (
 		<section className="testimony">
@@ -18,7 +20,7 @@ const Testimonies = () => {
 			<div className="content">
 				{dataShuffled.map((item, i) => {
 					if (i < 4) {
-						return <Testimony image={"https://i.pravatar.cc/300?u=" + item._id} name={item.name} rating={item.rating} review={item.review} key={i} />
+						return <Testimony image={"https://i.pravatar.cc/300?u=" + item._id} name={item.user} rating={item.rating} review={item.review} key={i} />
 					}
 				})}
 			</div>

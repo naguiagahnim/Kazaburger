@@ -1,12 +1,17 @@
-const SuggestsItem = (props) => {
-	return (
-		<div>
-			<img className="" src={props.image} alt={props.imageAlt} />
-			<h3>{props.title}</h3>
-			<p>{props.description}</p>
-			<span className="price h-3/3">{props.price}</span>
+const SuggestsItem = ({ image, title, description, price }) => (
+	<div className="suggests">
+		<div className="">
+			<img 
+				src={image} 
+				alt={title}
+			/>
 		</div>
-	);
-}
+		<div>
+			<h3>{title}</h3>
+			<p>{description}</p>
+			<div className="price">{price}</div>
+		</div>
+	</div>
+);
 
 export default SuggestsItem
