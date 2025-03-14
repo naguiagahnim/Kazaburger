@@ -5,7 +5,7 @@ const express = require("express");
 const router = require("./router");
 const cors = require("cors");
 const morgan = require("morgan");
-const bodyparser = require("body-parser");
+const bodyParser = require("body-parser");
 const app = express();
 
 //port listen
@@ -17,6 +17,4 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(router);
 
-app.listen(port, () => {
-    console.log("Listening on port " + port);
-});
+app.listen(port, () => console.log("Listening on port " + port));
