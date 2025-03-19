@@ -19,6 +19,7 @@ router.get("/product/:id", async(req, res) => {;
     })
 
 });
+
 router.get("/product/", async(req, res) => {
 const fetchurl = req.query.family ? url + "/product/?family=" + req.query.family : req.query.title ? url + "/product/?title=" + req.query.title : url + "/product/";
 fetch(fetchurl, {
