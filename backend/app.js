@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 //import express
 const express = require("express");
 
@@ -9,7 +11,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 //port listen
-const port = 4000;
+const port = process.env.PORT;
 
 app.use(morgan("combined"));
 app.use(cors());
