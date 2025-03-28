@@ -36,8 +36,40 @@ fetch(fetchurl, {
     })
 });
 
-router.get("/testimony", async(req, res) => {res.send(req.query);});
-router.get("/testimony/:id", async(req, res) => {res.send("un témoignage par id : " + `${req.params.id}`);});
+router.get("/testimony/", async(req, res) => {
+    const fetchurl = req.query.product ? url + "/testimony/?product=" + req.query.product : req.query.user ? url + "/testimony/?user=" + req.query.user : url + "/testimony/";
+    fetch(fetchurl, {
+        method: 'GET', 
+        'Authorization': 'Bearer ' + token
+        })
+        .then(response => {
+        if (response.ok) {        
+            return response.json().then((data) =>
+                {res.json(data);})
+        }
+        else{
+            throw new Error('Là = y a un problème :');
+        }
+        })
+    });
+
+router.get("/testimony/:id", async(req, res) => {;
+    fetch(url + "/testimony/" + req.params.id, {
+    method: 'GET',
+    'Authorization': 'Bearer ' + token
+    })
+    .then(response => {
+    if (response.ok) {        
+        return response.json().then((data) =>
+            {res.json(data);}) 
+    }
+    else{
+        throw new Error('Là = y a un problème :');
+    }
+    })
+
+});
+
 router.post("/testimony", async(req, res) => {});
 router.patch("/testimony/:id", async(req, res) => {});
 router.delete("/testimony/:id", async(req, res) => {});
