@@ -13,6 +13,9 @@ const app = express();
 //port listen
 const port = process.env.PORT;
 
+app.set("view engine", "ejs");
+app.set("views", "./views")
+app.use(express.static("public"));
 app.use(morgan("combined"));
 app.use(cors());
 app.use(bodyParser.json());

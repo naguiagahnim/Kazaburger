@@ -6,6 +6,16 @@ const router = express.Router();
 
 let users = [];
 
+//page d'accueil
+router.get("/", function(req, res) {
+    res.render("index");
+});
+
+//page à propos
+router.get("/about", function(req, res) {
+    res.render("about");
+});
+
 router.get("/product/:id", async (req, res) => {
     try {
         const response = await fetch(`${url}/product/${req.params.id}`);

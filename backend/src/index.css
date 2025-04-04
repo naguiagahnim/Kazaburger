@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+	--color-primary: #e7272d;
+	--color-secondary: #fbb217;
+	--font-slackey: Slackey, serif;
+	--font-rubik: "Rubik Dirt", serif;
+}
+
+@layer base {
+	#root {
+		@apply flex justify-center items-center w-full;
+
+	}
+
+	.menu-link {
+		@apply text-xl uppercase text-white font-bold font-slackey transition duration-300 ease-in-out hover:text-secondary;
+	}
+
+	/**** GENERAL ***/
+	h1,
+	h2,
+	h3 {
+		@apply font-bold font-slackey;
+	}
+
+	h1 {
+		@apply text-5xl md:text-7xl;
+	}
+
+	h2 {
+		@apply text-2xl md:text-5xl text-primary md:my-5 py-4;
+	}
+
+	h3 {
+		@apply text-primary text-2xl;
+	}
+
+
+	body {
+		@apply text-neutral-500;
+	}
+
+	.price {
+		@apply font-rubik;
+	}
+
+	/**** Entete ***/
+	.header {
+		@apply flex flex-col p-5;
+
+		.top {
+			@apply flex flex-col md:flex-row md:justify-between md:items-center mx-auto md:w-9/10;
+
+			nav {
+				@apply flex flex-col md:flex-row md:space-x-5 items-center;
+			}
+		}
+	}
+
+	/**** Produits en vedette ***/
+	.slide {
+		@apply rounded-[25px] h-[80vh] w-full relative flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden px-4 md:px-20 space-y-4;
+
+		.price {
+			@apply text-secondary text-5xl md:text-7xl;
+		}
+
+		.button-left {
+			@apply left-0
+		}
+
+		.button-right {
+			@apply right-0
+		}
+
+		button {
+			@apply absolute cursor-pointer top-1/2 transform -translate-y-1/2 text-white/20 hover:text-secondary/50 text-7xl mx-10
+		}
+	}
+
+	/**** Suggestions ***/
+	.suggests {
+		@apply mx-auto text-center flex-col p-5 flex flex-col h-full;
+
+		.content {
+			@apply container grid md:grid-cols-3 md:gap-x-10 gap-y-4 mx-auto;
+
+			div {
+				@apply flex-1 flex flex-col pt-2 space-y-2 pb-5 text-center;
+
+				img {
+					@apply rounded-2xl aspect-square h-48 w-full overflow-hidden w-full h-full object-cover;
+				}
+
+				p {
+					@apply text-justify flex-grow h-20 text-sm line-clamp-3;
+				}
+
+				.price {
+					@apply text-primary font-bold text-3xl;
+				}
+
+				h3 {
+					@apply bg-primary rounded rounded-xl text-white text-3xl inline-block p-2 mb-5;
+				}
+			}
+		}
+	}
+
+	/**** Kazaletter ***/
+	.newsletter {
+		@apply flex flex-col mx-auto text-center p-5 bg-secondary;
+
+		.content {
+			@apply flex flex-col;
+		}
+	}
+
+	/**** Temoignages ***/
+	.testimony {
+		@apply flex flex-col mx-auto text-center items-center p-4 space-y-4;
+
+		.avatar {
+			@apply w-32 h-32 rounded-full overflow-hidden;
+
+			img {
+				@apply w-full h-full object-cover;
+			}
+		}
+
+		.content {
+			@apply grid grid-cols-1 md:grid-cols-4 gap-8 items-start;
+
+			div>div {
+				@apply text-justify my-5;
+			}
+		}
+
+		img {
+			@apply rounded-full border-4 border-primary w-1/2 mx-auto;
+		}
+	}
+
+	/**** Pied de page ***/
+	.footer {
+		@apply flex flex-col text-center bg-neutral-800;
+
+		.content {
+			@apply flex flex-col md:flex-row gap-4 pb-5 md:p-5 border-solid md:justify-around md:items-center;
+		}
+
+		.copy {
+			@apply border-t border-white/50;
+		}
+
+		i {
+			@apply text-4xl m-2;
+		}
+
+		img {
+			@apply w-[200px] mx-auto md:m-0;
+		}
+
+		.links {
+			@apply flex flex-col;
+		}
+	}
+}
+
+@layer components {
+	a {
+		@apply text-secondary hover:text-primary;
+	}
+
+	.btn-lg,
+	.btn-md {
+		@apply bg-primary rounded md:rounded-xl transition duration-300 ease-in-out hover:bg-secondary hover:text-primary;
+	}
+
+	.btn-lg {
+		@apply p-2 md:p-3 text-white md:text-2xl;
+	}
+
+	.btn-md {
+		@apply m-2 py-2 px-4 text-white text-lg md:text-xl rounded-md md:rounded-lg;
+	}
+
+	form {
+		@apply flex flex-col md:flex-row md:gap-5 md:mx-auto;
+	}
+
+	input {
+		@apply bg-white rounded-md p-2 m-2;
+	}
+}
